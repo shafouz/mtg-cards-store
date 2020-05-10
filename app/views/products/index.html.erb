@@ -1,0 +1,42 @@
+<div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <div class="list-group my-4">
+          
+          <%= link_to "#", class: "list-group-item" do %>
+          <%= image_tag('iko.svg', class: "set-icon")%>
+          <span id="iko">Ikoria: Lair of Behemoths</span><% end %>
+          <%= link_to "#", class: "list-group-item" do %>
+          <%= image_tag('thb.svg', class: "set-icon")%>
+          <span id="thb">Theros Beyond Death</span><% end %>
+          <%= link_to "#", products_get_eld_url, remote: true, class: "eld"%>
+          <%= image_tag('eld.svg', class: "set-icon")%>
+          <span id="eld">Throne of Eldraine</span>
+        </div>
+
+      </div>
+
+      <div class="col-lg-9">
+
+      <%= render "products/carousel"%>
+      
+      <%= render "products/catalog"%>
+        
+        <div class="d-flex justify-content-center flex-wrap">
+          <ul class="pagination">
+            <li class="page-item">
+              <%== pagy_bootstrap_nav(@pagy).html_safe %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>

@@ -1,0 +1,27 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    padding-top: 56px;
+}
+
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+.list-group-item {
+    padding: 0.5rem 1rem;
+}
+
+.list-group {
+    display: flex;
+    align-content: space-around;
+    width: 15rem;
+}
+
+.set-icon {
+    width: 18px;
+    height: 18px;
+    margin: 0 5px 0 0;
+    vertical-align: sub;
+}
