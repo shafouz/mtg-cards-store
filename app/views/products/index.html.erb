@@ -6,32 +6,34 @@
 
         <div class="list-group my-4">
           
-          <%= link_to "#", class: "list-group-item" do %>
-          <%= image_tag('iko.svg', class: "set-icon")%>
-          <span id="iko">Ikoria: Lair of Behemoths</span><% end %>
-          <%= link_to "#", class: "list-group-item" do %>
-          <%= image_tag('thb.svg', class: "set-icon")%>
-          <span id="thb">Theros Beyond Death</span><% end %>
-          <%= link_to "#", products_get_eld_url, remote: true, class: "eld"%>
-          <%= image_tag('eld.svg', class: "set-icon")%>
-          <span id="eld">Throne of Eldraine</span>
+        <div class="list-group-item">
+          <%= image_tag("iko.svg", class: "set-icon")%>
+          <%= sortable "iko" %>
+        </div>
+        <div class="list-group-item">
+          <%= image_tag("thb.svg", class: "set-icon")%>
+          <%= sortable "thb" %>
+        </div>
+        <div class="list-group-item">
+          <%= image_tag("eld.svg", class: "set-icon")%>
+          <%= sortable "eld" %>
+        </div>
+          
         </div>
 
       </div>
 
       <div class="col-lg-9">
-
-      <%= render "products/carousel"%>
       
-      <%= render "products/catalog"%>
+      <%= render partial: "products/list"%>
         
-        <div class="d-flex justify-content-center flex-wrap">
-          <ul class="pagination">
-            <li class="page-item">
-              <%== pagy_bootstrap_nav(@pagy).html_safe %>
-            </li>
-          </ul>
-        </div>
+      <div class="d-flex justify-content-center flex-wrap">
+        <ul class="pagination">
+          <li class="page-item">
+            <%== pagy_bootstrap_nav(@pagy).html_safe %>
+          </li>
+        </ul>
+      </div>
 
       </div>
       <!-- /.col-lg-9 -->

@@ -2,14 +2,14 @@
         <% @products.each do |product| %>
           <div class="col-md-4 my-2">
             <div class="card h-100">
-              <a href="#"><%= image_tag(product.image_uris, class: "card-img-top")%></a>
+              <a href="#"><%= link_to image_tag(product.image_uris, class: "card-img-top"), product_path(product)%></a>
                 <div class="card-body">
                   <h4 class="card-title">
-                  <a href="#"><%= product.name %></a>
+                  <a href="#"><%= link_to product.name, product_path(product) %></a>
                   </h4>
                   <h5>$24.99</h5>
                 </div>
             </div>
           </div>
-        <% end %>
+    <% end %>
 </div>

@@ -1,20 +1,21 @@
 class ProductsController < ApplicationController
   include Pagy::Backend
+  include ApplicationHelper
 
   def index
-    @pagy, @products = pagy(Product.all, page: params[:page], items: 21)
+    if params[:search].nil?
+      @pagy, @products = pagy(Product.where(set: sort_sets), items: 21)
+    else
+      @pagy, @products = pagy(Product.search(params[:search]).all, items: 21)
+    end
   end
 
   def new
     @product = Product.new
   end
 
-  def get_eld
-    @products = Product.where(set: "eld")
-    render partial: "products/catalog", :products => @products
-  end
-
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -32,5 +33,9 @@ class ProductsController < ApplicationController
   private
     def product_parameters
       params.require(:product).permit(:name, :set, :image_uris, :card_id)
+    end
+
+    def sort_sets
+      %w[iko thb eld].include?(params[:sort]) ? params[:sort] : "eld"
     end
 end

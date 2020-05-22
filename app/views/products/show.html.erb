@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag(@product.image_uris, class: "card-img-top")%>
+    </div>
+    <div class="col-md-3">
+      <h4 class="card-title"><%= @product.name %></h4>
+      <p id="card-description"><%= @product.oracle_text %></p>
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item">$24.99</li>
+        <li class="list-group-item">$24.99</li>
+        <li class="list-group-item">$24.99</li>
+      </ul>
+    </div>
+  </div>
+</div>
