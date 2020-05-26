@@ -299,7 +299,7 @@ DEPENDENCIES
   json
   listen (>= 3.0.5, < 3.2)
   pagy
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.3, >= 6.0.3)
   rails_admin (~> 2.0)
   sass-rails (>= 6)
