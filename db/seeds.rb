@@ -1,4 +1,4 @@
-file = File.open "selected_keys.json"
+file = File.open "./selected_keys.json"
 @selected_keys = JSON.load file
 file.close
 
