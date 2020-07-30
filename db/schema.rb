@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_204245) do
+ActiveRecord::Schema.define(version: 2020_07_28_175614) do
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "user_id"
+    t.integer "status", default: 0
+    t.string "token"
+    t.string "charge_id"
+    t.string "error_message"
+    t.string "customer_id"
+    t.integer "payment_gateway"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -18,6 +32,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_204245) do
     t.string "card_id"
     t.string "image_uris"
     t.string "oracle_text"
+    t.string "stripe_plan_name"
+    t.string "paypal_plan_name"
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "USD", null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,11 @@
+var stripe = Stripe(
+  "pk_test_51H9xSXEJBJUNhUw2loxfVhbmVCSE6hCiteibUct5z7R0OVIREhay6eGwIZ8yx9GbsYM8W5fUbXV1IwJ9Xo6Pupwe00muicJcMT"
+);
+
+stripe
+  .redirectToCheckout({
+    sessionId: "<%= @session.id %>",
+  })
+  .then(function (result) {
+    console.log("Did it work?");
+  });

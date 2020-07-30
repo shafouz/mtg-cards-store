@@ -11,6 +11,8 @@
         <li class="list-group-item">$24.99</li>
         <li class="list-group-item">$24.99</li>
       </ul>
+      <br>
+      <%= link_to "Buy", checkout_path(@product.id), id: "checkout-button", class: "btn btn-primary float-right", remote: true %>
     </div>
   </div>
 </div>

@@ -25,6 +25,10 @@ gem 'http'
 gem 'pagy'
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
+gem 'money-rails', '~>1.12'
+gem 'stripe'
+gem 'stripe_event'
+gem 'redis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -47,6 +51,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'annotate'
 end
 
 group :test do
