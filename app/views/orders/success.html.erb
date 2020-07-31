@@ -1,13 +1,13 @@
-<% flash.each do |type, msg| %>
-  <div class="alert alert-info">
-    <%= msg %>
-  </div>
-<% end %>
-
-<%= print_cart %>
-
-<%= link_to "Clear", checkout_success_path(:type => 0) %>
-
-<h1>Your purchase has been completed</h1>
-<p>Check your emails, or track your product through your profile</p>
-<%= link_to "Back", products_path, class: "btn btn-primary" %>
+<div class="container">
+    <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= "Your purchase has been completed" %>
+      </div>
+      <p>Check your emails, or track your product through your profile</p>
+    <% else %>
+      <div class="alert alert-danger">
+        <%= "Your purchase failed try again later." %>
+      </div>
+    <% end %>
+  <%= link_to "Back", products_path, class: "btn btn-primary" %>
+</div>

@@ -10,6 +10,7 @@ require("channels");
 
 import "bootstrap";
 import "../stylesheets/application";
+import "../stylesheets/carts";
 import "../packs/pagy.js.erb";
 
 document.addEventListener("turbolinks:load", () => {

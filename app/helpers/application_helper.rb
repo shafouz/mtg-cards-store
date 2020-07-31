@@ -18,11 +18,12 @@ module ApplicationHelper
   end
 
   # Redis stuff
-  def go_to_checkout
-    link_to "Checkout", checkout_success_path, class: "btn btn-secondary btn-sm mt-1"
-  end
 
   def print_cart
     cart = Redis.current.lrange("test2", 0, -1)
+  end
+
+  def push_to_cart(product)
+    Redis.current.lpush("test2", product)
   end
 end

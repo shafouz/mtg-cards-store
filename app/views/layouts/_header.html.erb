@@ -14,7 +14,9 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav">
           <li>
-            <%= go_to_checkout %>
+            <% if !(current_page?(carts_path)) && user_signed_in? %>
+              <%= link_to "Checkout", carts_path, class: "btn btn-secondary btn-sm mt-1" %>
+            <% end %>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
