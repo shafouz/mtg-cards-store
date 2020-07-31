@@ -20,8 +20,6 @@
 #                                       POST   /users(.:format)                                                                         devise/registrations#create
 #                                  root GET    /                                                                                        products#index
 #           products_pagy_remote_nav_js GET    /products/pagy_remote_nav_js(.:format)                                                   products#pagy_remote_nav_js
-#                              checkout GET    /orders/checkout/:id(.:format)                                                           orders#checkout
-#                      checkout_success GET    /orders/success(.:format)                                                                orders#success
 #                              products GET    /products(.:format)                                                                      products#index
 #                                       POST   /products(.:format)                                                                      products#create
 #                           new_product GET    /products/new(.:format)                                                                  products#new
@@ -30,6 +28,16 @@
 #                                       PATCH  /products/:id(.:format)                                                                  products#update
 #                                       PUT    /products/:id(.:format)                                                                  products#update
 #                                       DELETE /products/:id(.:format)                                                                  products#destroy
+#                              checkout GET    /orders/checkout(.:format)                                                               orders#checkout
+#                      checkout_success GET    /orders/success(.:format)                                                                orders#success
+#                                 carts GET    /carts(.:format)                                                                         carts#index
+#                                       POST   /carts(.:format)                                                                         carts#create
+#                              new_cart GET    /carts/new(.:format)                                                                     carts#new
+#                             edit_cart GET    /carts/:id/edit(.:format)                                                                carts#edit
+#                                  cart GET    /carts/:id(.:format)                                                                     carts#show
+#                                       PATCH  /carts/:id(.:format)                                                                     carts#update
+#                                       PUT    /carts/:id(.:format)                                                                     carts#update
+#                                       DELETE /carts/:id(.:format)                                                                     carts#destroy
 #         rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
 #            rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
 #         rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
@@ -67,16 +75,21 @@
 #   root POST /           stripe_event/webhook#event
 
 Rails.application.routes.draw do
+  # Gems
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount StripeEvent::Engine, at: '/stripe/webhooks'
   devise_for :users
 
+  # Products
   root "products#index"
-
   get "products/pagy_remote_nav_js"
-
-  get "orders/checkout/:id", to: "orders#checkout", as: "checkout"
-  get "orders/success", to: "orders#success", as: "checkout_success"
-
   resources :products
+
+  # Orders / Stripe
+  get "orders/checkout", to: "orders#checkout", as: "checkout"
+  get "orders/success", to: "orders#success", as: "checkout_success"
+  get "orders/failed", to: "orders#success", id: false
+
+  # Carts
+  resources :carts
 end
