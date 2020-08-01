@@ -4,5 +4,5 @@ StripeEvent.signing_secret = Rails.application.credentials.stripe[Rails.env.to_s
 StripeEvent.configure do |events|
   #events.subscribe 'invoice.', Stripe::InvoiceEventHandler.new
   #events.subscribe 'payment_intent.succeeded', Stripe::PaymentEventHandler.new
-  #events.subscribe 'charge.succeeded', Stripe::CheckoutEventHandler.new
+  #events.subscribe 'checkout.session.completed', Stripe::CheckoutEventHandler.new
 end

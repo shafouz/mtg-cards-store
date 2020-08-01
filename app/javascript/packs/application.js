@@ -8,9 +8,11 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
 
+import "./custom";
 import "bootstrap";
 import "../stylesheets/application";
 import "../stylesheets/carts";
+import "../stylesheets/products";
 import "../packs/pagy.js.erb";
 
 document.addEventListener("turbolinks:load", () => {

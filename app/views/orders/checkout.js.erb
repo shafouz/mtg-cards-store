@@ -7,5 +7,5 @@ stripe
     sessionId: "<%= @session.id %>",
   })
   .then(function (result) {
-    console.log("Did it work?");
+    result.error.message
   });

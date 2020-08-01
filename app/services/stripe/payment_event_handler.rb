@@ -13,7 +13,7 @@ module Stripe
       end
   
       def handle_payment_intent_succeeded(event)
-        #puts "HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
+        puts "HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE"
         #pp event
         #redirect_to controller: :orders, action: :success
       end

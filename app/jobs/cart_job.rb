@@ -10,6 +10,6 @@ class CartJob < ApplicationJob
     )
     cable_ready.broadcast
 =end
-    Redis.current.lrem(args[0], 0, "DELETED")
+    #Redis.current.lrem(args[0], 0, "DELETED")
   end
 end

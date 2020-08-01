@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
   # Push to cart
   def index
-    CartJob.new(current_user.id).perform_now
     cart = Redis.current.lrange("#{current_user.id}", 0, -1)
     @cart = []
     cart.each {|c| @cart << JSON.parse(c) if c != "DELETED"}

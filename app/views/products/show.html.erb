@@ -1,5 +1,10 @@
 <div class="container mt-4">
   <div class="row">
+
+    <div class="alert alert-primary alert-dismissible alert-button fade show" role="alert">
+      <strong>The item was added to the cart.</strong>
+    </div>
+    
     <div class="col-md-4">
       <%= image_tag(@product.image_uris, class: "card-img-top")%>
     </div>
@@ -12,7 +17,7 @@
         <li class="list-group-item">$24.99</li>
       </ul>
       <br>
-      <%= link_to "Buy", checkout_path(@product.id), id: "checkout-button", class: "btn btn-primary float-right", remote: true %>
+      <%= link_to "Add to cart", new_cart_path(id: @product), class: "btn btn-primary float-right", remote: true %>
     </div>
   </div>
 </div>
