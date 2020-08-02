@@ -31,7 +31,7 @@ Rails.application.configure do
   end
 
   Rails.application.configure do
-    config.cache_store = :redis_cache_store, { url: ENV["REDIS_URL"], port: ENV["REDIS_PORT"], db: ENV["REDIS_DB"] }
+    config.cache_store = :redis_cache_store, { url: ENV["REDIS_URL"] }
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
