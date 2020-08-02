@@ -22,6 +22,10 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  Rails.application.configure do
+    config.cache_store = :redis_cache_store, { url: ENV["REDIS_URL"] }
+  end
+
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
