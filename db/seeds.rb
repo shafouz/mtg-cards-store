@@ -1,6 +1,7 @@
-file = File.read("db/selected_keys.json")
-@selected_keys = JSON.parse(file)
+# "name", "set", "card_id", "image_uris", "oracle_text"
 
-@selected_keys.each_with_index do |_i,index|
-  Product.create(name: @selected_keys[index]["name"], set: @selected_keys[index]["set"], card_id: @selected_keys[index]["card_id"], image_uris: @selected_keys[index]["image_uris"], oracle_text: @selected_keys[index]["oracle_text"])
+def get_set_recursively(url)
+  url["data"].each_with_index do |i, index|
+    i["name"], i["image_uris"]["border_crop"], i["set"], i["oracle_text"], i["card_id"] = index
+  end
 end

@@ -1,23 +1,23 @@
 <div class="container greyout">
   <div class="row">
-  <ul class="list-group col-md-9">
+  <ul class="list-group col-md-9 mb-2">
     <% @cart.each_with_index do |c, index|%>
       <li class="list-group-item item-<%= index %>">
         <%= link_to image_tag(c["image_uris"], class: "cart-img") %>
-        <%= c["name"] %>
-        <%= "add a price here" %>
+        <div class="cart-body">
+          <p><%= c["name"] %></p>
+          <p><%= "25,00 USD" %></p>
+        </div>
         <%= link_to "Delete from cart", cart_path(id: index), class: "btn btn-primary float-right", id: "delete-button", remote: true %>
       </li>
     <% end %>
   </ul>
   <div class="list-group col-md-3">
     <li class="list-group-item">
-      <p>Here will be the payment stuff</p>
-      <p>Do the sum of all stuff</p>
-      <p>1</p>
-      <p>1</p>
-      <p>1</p>
-      <p>This should be action_ready stuff</p>
+      <strong>TOTAL:</strong>
+      <% @cart.uniq.each do |c| %>
+        <p><%= c["name"] %></p>
+      <% end %>
     </li>
     <%= link_to "Proceed to checkout", checkout_path, id: "checkout-button", class: "btn btn-primary mt-1", remote: true %>
   </div>
