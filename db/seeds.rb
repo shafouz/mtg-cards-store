@@ -1,7 +1,8 @@
 # "name", "set", "card_id", "image_uris", "oracle_text"
 
-def get_set_recursively(url)
-  url["data"].each_with_index do |i, index|
-    i["name"], i["image_uris"]["border_crop"], i["set"], i["oracle_text"], i["card_id"] = index
-  end
+sets = JSON.parse(File.read("sets.json"));
+
+sets.each do |set|
+  Product.create(name: set["name"], set: set["set"], oracle_text: set["oracle_text"], card_id: set["card_id"], image_uris: set["image_uris"]) if set["set"] != "eld"
+  Product.update(card_id: set["card_id"], oracle_text: set["oracle_text"]) if set["set"] == "eld"
 end
