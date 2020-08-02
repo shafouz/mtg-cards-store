@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
     payment_method_types: ['card'],
     line_items: add_line_items,
       mode: 'payment',
-      success_url: "http://0.0.0.0:5000/orders/success",
-      cancel_url: "https://0.0.0.0:5000/orders/failed",
+      success_url: "#{ENV["LOCAL_URL"]}/orders/success",
+      cancel_url: "#{ENV["LOCAL_URL"]}/orders/failed",
     )
     respond_to do |format|
       format.html
@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       return flash[:danger]
     else
       flash[:notice] = ""
-      Redis.current.lrem(current_user.id, 0, "DELETED")
+      Redis.current.lrem(current_user.id, 0, "DELETED") if current_user.id.nil
     end
   end
 end
