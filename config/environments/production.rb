@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   Rails.application.configure do
-    config.cache_store = :redis_cache_store, { url: ENV["REDIS_URL"] }
+    config.cache_store = :redis_cache_store, { url: "protected-coast-19176.herokuapp.com" }
   end
 
   # Compress CSS using a preprocessor.
