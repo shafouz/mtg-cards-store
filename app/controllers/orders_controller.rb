@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
       return flash[:danger]
     else
       flash[:notice] = ""
-      Redis.current.lrem(current_user.id, 0, "DELETED") if current_user.id.nil
+      Redis.current.lrem(current_user.id, 0, "DELETED") if current_user
     end
   end
 end

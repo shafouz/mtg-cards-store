@@ -1,20 +1,4 @@
 module OrdersHelper
-  
-=begin
-    { 
-        price_data: {
-          product_data: {
-            name: "Teferi, Hero of Dominaria",
-          },
-          unit_amount: 2500,
-        },
-        quantity: 1
-      },
-=end
-
-  # line items is a array that has multiple object in it.
-  # every object is a product
-  # line_items: [] => price_data => (product_data: {name: product_name}, unit_amount: product_price), quantity: integer
   def add_line_items
     redis = Redis.current.lrange("#{current_user.id}", 0, -1)
     temp = []
