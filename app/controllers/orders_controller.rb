@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   def checkout
+    Redis.current.lrem(current_user.id, 0, "DELETED") if current_user
     Stripe.api_key = 'sk_test_51H9xSXEJBJUNhUw2O1UYgl37DC4bRfi11UtK5jefo0pGxZJFdV0s61dSnCV5pHVGfgNx9RluuK6DGjlLAovFPcvi00lxQi2mvm'
     add_line_items
 
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
       return flash[:danger]
     else
       flash[:notice] = ""
-      Redis.current.lrem(current_user.id, 0, "DELETED") if current_user
+      Redis.current.del(current_user.id) if current_user
     end
   end
 end
