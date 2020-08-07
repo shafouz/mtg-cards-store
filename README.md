@@ -12,7 +12,7 @@ Simple store made with Ruby on Rails.
 
 ###### Gems used
 
-1. Bootstrap, JQuery for working with Javascript.
+1. Bootstrap, JQuery for working with Javascript
 1. Stripe for invoicing
 2. Devise for users
 3. Admin dashbord with RailsAdmin
