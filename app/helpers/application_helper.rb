@@ -18,7 +18,6 @@ module ApplicationHelper
   end
 
   # Redis stuff
-
   def print_cart
     cart = Redis.current.lrange("test2", 0, -1)
   end

@@ -20,7 +20,6 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'pg'
-gem 'json'
 gem 'http'
 gem 'pagy'
 gem 'devise'
@@ -28,7 +27,6 @@ gem 'rails_admin', '~> 2.0'
 gem 'stripe'
 gem 'stripe_event'
 gem 'redis'
-gem "cable_ready", "~> 4.3"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -41,6 +39,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
@@ -62,6 +61,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'annotate'
+  gem 'rspec'
+  gem 'rails-controller-testing'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
