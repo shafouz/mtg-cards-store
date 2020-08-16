@@ -1,5 +1,4 @@
 Rails.application.configure do
-=begin
   # ACTION MAILER STUFF
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -10,7 +9,6 @@ Rails.application.configure do
     password:             "#{ENV["EMAIL_PASSWORD"]}",
     authentication:       'plain',
     enable_starttls_auto: true }
-=end
 
   # Code is not reloaded between requests.
   config.cache_classes = true
