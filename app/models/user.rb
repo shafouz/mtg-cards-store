@@ -23,7 +23,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_commit :send_email
+  after_save :send_email
 
   def send_email
     UserMailer.with(user: self).welcome_email.deliver_now
