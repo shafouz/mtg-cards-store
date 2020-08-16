@@ -4,7 +4,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               "#{ENV["LOCAL_URL"]}",
+    domain:               "protected-coast-19176.herokuapp.com",
     user_name:            "#{ENV["EMAIL"]}",
     password:             "#{ENV["EMAIL_PASSWORD"]}",
     authentication:       'plain',
