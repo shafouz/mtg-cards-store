@@ -1,0 +1,10 @@
+Thanks for your purchase, <%= @user.email %>
+===============================================
+ 
+You have successfully ordered the below items,
+<% @list.each do |l| %>
+  <%= l[:price_data][:product_data][:name] %>\n
+<% end %>
+ 
+If there is any problem contact us at: <%= @url %>.
+ 

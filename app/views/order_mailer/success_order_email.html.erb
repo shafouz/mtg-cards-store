@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for the purchase, <%= @user.email %></h1>
+    <p>
+      You have successfully ordered, the below products.
+      <% @list.each do |l| %>
+        <%= l[:price_data][:product_data][:name] %><br>
+      <% end %>
+    </p>
+    <p>
+      If there is any problem contact us at: <%= @url %>.
+    </p>
+  </body>
+</html>

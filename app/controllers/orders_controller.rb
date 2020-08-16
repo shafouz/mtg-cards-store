@@ -23,8 +23,14 @@ class OrdersController < ApplicationController
     if params[:id] == false
       return flash[:danger]
     else
+      send :send_success_email
       flash[:notice] = ""
       Redis.current.del(current_user.id) if current_user
     end
   end
+
+  private
+    def send_success_email
+      OrderMailer.with(user: current_user, list: add_line_items).success_order_email.deliver_later
+    end
 end
