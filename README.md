@@ -17,3 +17,7 @@ Simple store made with Ruby on Rails.
 2. Devise for users
 3. Admin dashbord with RailsAdmin
 4. Redis for the Cart shop feature
+
+To run locally clone this repo and run
+`bundle install`
+`rails server` or `foreman start` if you are using the foreman gem
