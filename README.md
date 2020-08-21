@@ -20,4 +20,5 @@ Simple store made with Ruby on Rails.
 
 To run locally clone this repo and run
 `bundle install`
+
 `rails server` or `foreman start` if you are using the foreman gem
